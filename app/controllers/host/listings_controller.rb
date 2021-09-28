@@ -54,6 +54,8 @@ class Host::ListingsController < ApplicationController
       :state,
       :postal_code,
       :country,
+      :lat,
+      :lng
     )
   end
 

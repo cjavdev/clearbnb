@@ -1,0 +1,19 @@
+<h1>Edit <%= @listing.title %></h1>
+
+<%= render partial: "shared/errors" %>
+
+<form action="<%= host_listing_path(@listing) %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="PUT">
+
+  <label for="title">Title</label>
+  <input type="text" name="listing[title]" id="title" value="<%= @listing.title %>">
+
+  <label for="about">About</label>
+  <textarea id="about" name="listing[about]"><%= @listing.about %></textarea>
+
+  <label for="max_guests">How many people maxium can stay?</label>
+  <input type="number" id="max_guests" name="listing[max_guests]" value="<%= @listing.max_guests %>" min="1" max="100" step="1">
+
+  <input type="submit" value="Update listing">
+</form>

@@ -1,0 +1,5 @@
+<h1><%= @listing.title %></h1>
+
+<%= link_to "Edit", edit_host_listing_path(@listing) %>
+
+<pre><%= JSON.pretty_generate(@listing.as_json) %></pre>

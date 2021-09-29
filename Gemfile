@@ -58,3 +58,5 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "stimulus-rails", "~> 0.6.0"
+
+gem "tailwindcss-rails", "~> 0.4.3"

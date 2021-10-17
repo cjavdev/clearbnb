@@ -1,0 +1,2 @@
+module Host::RoomsHelper
+end

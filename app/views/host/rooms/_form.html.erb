@@ -1,0 +1,32 @@
+<div data-controller="room">
+
+  <template data-room-target="bedFields">
+    <label class="block text-sm font-medium text-gray-700">Bed size</label>
+    <select name="room[beds_attributes][][bed_size]" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+      <% Bed.bed_sizes.each do |bed_size, _| %>
+        <option><%= bed_size %></option>
+      <% end %>
+    </select>
+  </template>
+
+
+  <form action="<%= host_listing_rooms_path(listing) %>" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+    <label for="room_type" class="block text-sm font-medium text-gray-700">Room type</label>
+    <select id="room_type" name="room[room_type]" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+      <% Room.room_types.each do |rt, _| %>
+      <option><%= rt %></option>
+      <% end %>
+    </select>
+
+    <fieldset data-room-target="beds">
+      <legend>Beds</legend>
+    </fieldset>
+
+    <a href="#" data-action="room#addBed">add bed</a>
+
+    <input type="submit" value="Add room">
+  </form>
+
+</div>

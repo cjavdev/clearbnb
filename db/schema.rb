@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_26_184417) do
+ActiveRecord::Schema.define(version: 2021_10_13_230033) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "beds", force: :cascade do |t|
+    t.bigint "room_id", null: false
+    t.integer "bed_size"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["room_id"], name: "index_beds_on_room_id"
+  end
 
   create_table "listings", force: :cascade do |t|
     t.bigint "host_id", null: false
@@ -32,6 +40,14 @@ ActiveRecord::Schema.define(version: 2021_09_26_184417) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["host_id"], name: "index_listings_on_host_id"
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.bigint "listing_id", null: false
+    t.integer "room_type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["listing_id"], name: "index_rooms_on_listing_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -65,5 +81,7 @@ ActiveRecord::Schema.define(version: 2021_09_26_184417) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
+  add_foreign_key "beds", "rooms"
   add_foreign_key "listings", "users", column: "host_id"
+  add_foreign_key "rooms", "listings"
 end

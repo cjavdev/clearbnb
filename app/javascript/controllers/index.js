@@ -5,3 +5,6 @@ import { application } from "./application"
 
 import AddressController from "./address_controller"
 application.register("address", AddressController)
+
+import RoomController from "./room_controller"
+application.register("room", RoomController)

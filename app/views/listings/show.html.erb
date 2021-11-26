@@ -1,0 +1,24 @@
+<h1><%= @listing.title %></h1>
+
+<%= @listing.city %>, <%= @listing.state %>
+
+<p>
+  <%= @listing.about %>
+</p>
+
+<p>
+  <%= @listing.max_guests %>
+</p>
+
+
+<ul>
+  <% @listing.rooms.each do |room| %>
+  <li><%= room.room_type %> beds: <%= room.beds.count %></li>
+  <% end %>
+</ul>
+
+
+<div>
+  <h4>Host</h4>
+  <%= @listing.host.name %>
+</div>

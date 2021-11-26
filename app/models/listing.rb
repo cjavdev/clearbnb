@@ -25,4 +25,9 @@ class Listing < ApplicationRecord
   belongs_to :host, class_name: 'User'
   enum status: {draft: 0, published: 1, archived: 2}
   has_many :rooms
+  scope :published, -> { where(status: :published) }
+
+  def address
+    "#{address_line1} #{address_line2} #{city} #{state}"
+  end
 end

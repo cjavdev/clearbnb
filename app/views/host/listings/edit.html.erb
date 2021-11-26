@@ -1,4 +1,4 @@
-<h1>Edit <%= @listing.title %></h1>
+<h1 class="text-2xl font-bold mb-4">Edit <%= @listing.title %></h1>
 
 <%= render partial: "shared/errors" %>
 
@@ -14,6 +14,13 @@
 
   <label for="max_guests">How many people maxium can stay?</label>
   <input type="number" id="max_guests" name="listing[max_guests]" value="<%= @listing.max_guests %>" min="1" max="100" step="1">
+
+  <label for="status">Status</label>
+  <select name="listing[status]">
+    <% Listing.statuses.keys.each do |status| %>
+      <option <%= 'selected' if @listing.status == status %>><%= status %></option>
+    <% end %>
+  </select>
 
   <input type="submit" value="Update listing">
 </form>

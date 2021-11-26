@@ -1,5 +1,6 @@
-<h1><%= @listing.title %></h1>
+<h1 class="text-2xl font-bold mb-4"><%= @listing.title %></h1>
 
-<%= link_to "Edit", edit_host_listing_path(@listing) %>
+<%= link_to "Edit details", edit_host_listing_path(@listing) %>
+<%= link_to "Edit rooms", host_listing_rooms_path(@listing) %>
 
 <pre><%= JSON.pretty_generate(@listing.as_json) %></pre>

@@ -1,4 +1,6 @@
 class Host::ListingsController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @listing = Listing.new
   end
@@ -63,7 +65,8 @@ class Host::ListingsController < ApplicationController
     params.require(:listing).permit(
       :title,
       :about,
-      :max_guests
+      :max_guests,
+      :status
     )
   end
 end

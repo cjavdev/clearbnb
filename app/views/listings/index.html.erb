@@ -1,0 +1,7 @@
+<h1 class="text-2xl mb-4 font-bold">Listings</h1>
+
+<ul>
+  <% @listings.each do |listing| %>
+    <li><%= link_to listing.title, listing_path(listing) %></li>
+  <% end %>
+</ul>

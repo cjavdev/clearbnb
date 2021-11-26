@@ -1,4 +1,6 @@
-<h1 class="text-3xl">Rooms</h1>
+<h1 class="text-2xl font-bold mb-4">Rooms</h1>
+
+<%= link_to "Back to #{@listing.title}", host_listing_path(@listing) %>
 
 <ul role="list" class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
   <% @rooms.each do |room| %>

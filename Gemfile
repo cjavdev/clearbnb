@@ -40,6 +40,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem "pry-rails", "~> 0.3.9"
+  gem 'faker'
 end
 
 group :development do
@@ -61,3 +62,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "stimulus-rails", "~> 0.6.0"
 
 gem "tailwindcss-rails", "~> 0.4.3"
+gem 'image_processing', '~> 1.2'
+gem 'stripe'

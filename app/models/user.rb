@@ -25,6 +25,7 @@
 #  provider               :string
 #  uid                    :string
 #  name                   :string
+#  stripe_customer_id     :string
 #
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
@@ -32,6 +33,22 @@ class User < ApplicationRecord
     :confirmable, :lockable, :timeoutable, :trackable,
     :omniauthable, omniauth_providers: [:google]
   has_many :listings, foreign_key: :host_id
+  has_many :reservations, foreign_key: :guest_id
+
+  after_commit :maybe_create_stripe_customer, on: [:create, :update]
+
+  def maybe_create_stripe_customer
+    return if !stripe_customer_id.blank?
+
+    customer = Stripe::Customer.create(
+      email: email,
+      name: name,
+      metadata: {
+        clearbnb_id: id
+      }
+    )
+    update(stripe_customer_id: customer.id)
+  end
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

@@ -44,5 +44,11 @@
     <input type="number" id="max_guests" name="listing[max_guests]" value="<%= @listing.max_guests %>" min="1" max="100" step="1" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
   </div>
 
+  <label for="nightly_price">Nightly price</label>
+  <input type="number" id="nightly_price" name="listing[nightly_price]" value="<%= @listing.nightly_price %>" min="1" step="1">
+
+  <label for="cleaning_fee">Cleaning fee</label>
+  <input type="number" id="cleaning_fee" name="listing[cleaning_fee]" value="<%= @listing.cleaning_fee %>" min="1" step="1">
+
   <input type="submit" value="Create listing" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
 </form>

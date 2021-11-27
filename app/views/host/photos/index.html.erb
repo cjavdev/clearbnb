@@ -1,0 +1,12 @@
+<h1 class="text-2xl mb-4 font-bold">Photos</h1>
+
+
+<form action="<%= host_listing_photos_path(@listing) %>" method="POST">
+  <input type=file name="photo[photo]" data-direct-upload-url="<%= rails_direct_uploads_url %>" />
+
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <label for="caption">Caption</label>
+  <input type="text" name="photo[caption]" id="photo[caption]" value="">
+
+  <button>Upload</button>
+</form>

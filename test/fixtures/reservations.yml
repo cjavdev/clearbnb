@@ -1,0 +1,20 @@
+# == Schema Information
+#
+# Table name: reservations
+#
+#  id         :bigint           not null, primary key
+#  listing_id :bigint           not null
+#  guest_id   :bigint           not null
+#  session_id :string
+#  status     :integer          default(0)
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+one:
+  session_id: MyString
+  status: 1
+
+two:
+  session_id: MyString
+  status: 1

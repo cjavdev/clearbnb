@@ -57,7 +57,9 @@ class Host::ListingsController < ApplicationController
       :postal_code,
       :country,
       :lat,
-      :lng
+      :lng,
+      :nightly_price,
+      :cleaning_fee
     )
   end
 
@@ -66,7 +68,9 @@ class Host::ListingsController < ApplicationController
       :title,
       :about,
       :max_guests,
-      :status
+      :status,
+      :nightly_price,
+      :cleaning_fee
     )
   end
 end

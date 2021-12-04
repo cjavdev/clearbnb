@@ -64,3 +64,4 @@ gem "stimulus-rails", "~> 0.6.0"
 gem "tailwindcss-rails", "~> 0.4.3"
 gem 'image_processing', '~> 1.2'
 gem 'stripe'
+gem 'resque'

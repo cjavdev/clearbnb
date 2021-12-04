@@ -1,2 +1,8 @@
-<h1>Reservations#show</h1>
-<p>Find me in app/views/reservations/show.html.erb</p>
+<h1 class="text-2xl mb-4 font-bold"><%= @reservation.listing.title %></h1>
+
+<pre><%= JSON.pretty_generate(@reservation.as_json) %></pre>
+
+<form action="<%= cancel_reservation_path(@reservation) %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="submit" value="Cancel">
+</form>

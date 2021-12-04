@@ -1,0 +1,27 @@
+# == Schema Information
+#
+# Table name: events
+#
+#  id            :bigint           not null, primary key
+#  request_body  :text
+#  status        :integer          default("pending")
+#  error_message :text
+#  source        :string
+#  event_type    :string
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#
+
+one:
+  request_body: MyText
+  status: 1
+  error_message: MyText
+  source: MyString
+  event_type: MyString
+
+two:
+  request_body: MyText
+  status: 1
+  error_message: MyText
+  source: MyString
+  event_type: MyString

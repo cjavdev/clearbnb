@@ -12,6 +12,7 @@ module Clearbnb
     config.load_defaults 6.1
 
     Rails.application.default_url_options = { host: 'localhost', port: 3000 }
+    config.active_job.queue_adapter = :resque
 
     # Configuration for the application, engines, and railties goes here.
     #

@@ -43,6 +43,10 @@ class ReservationsController < ApplicationController
           reservation_id: @reservation.id,
         },
         payment_intent_data: {
+          application_fee_amount: ((listing.cleaning_fee + listing.nightly_price) * 0.10).to_i,
+          transfer_data: {
+            destination: listing.host.stripe_account_id
+          },
           metadata: {
             reservation_id: @reservation.id,
           }

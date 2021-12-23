@@ -30,6 +30,10 @@ class EventJob < ApplicationJob
 
   def handle_stripe(event)
     case event.type
+    when "account.updated"
+      account = event.data.object
+      user = User.find_by(stripe_account_id: account.id)
+      user.update(charges_enabled: account.charges_enabled)
     when "checkout.session.completed"
       # do something with the checkout session and the reservation here.
       checkout_session = event.data.object

@@ -1,0 +1,2 @@
+module Host::MerchantSettingsHelper
+end

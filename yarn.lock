@@ -2582,6 +2582,11 @@
   "resolved" "https://registry.npmjs.org/ee-first/-/ee-first-1.1.1.tgz"
   "version" "1.1.1"
 
+"el-transition@^0.0.7":
+  "integrity" "sha512-a23pEa7ahqLmBIEqtxi8CdL6CRLF52ZoAwawDFTD1IDkegrL4iValQAj6IMEgIEXPSrXZtx/Nr/ej6ebov4uoA=="
+  "resolved" "https://registry.npmjs.org/el-transition/-/el-transition-0.0.7.tgz"
+  "version" "0.0.7"
+
 "electron-to-chromium@^1.4.17":
   "integrity" "sha512-uZ95szi3zUbzRDx1zx/xnsCG+2xgZyy57pDOeaeO4r8zx5Dqe8Jv1ti8cunvBwJHVI5LzPuw8umKwZb3WKYxSQ=="
   "resolved" "https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.4.27.tgz"

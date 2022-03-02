@@ -3,8 +3,11 @@
 
 import { application } from "./application"
 
-import AddressController from "./address_controller"
+import AddressController from "./address_controller.js"
 application.register("address", AddressController)
 
-import RoomController from "./room_controller"
+import MenuController from "./menu_controller.js"
+application.register("menu", MenuController)
+
+import RoomController from "./room_controller.js"
 application.register("room", RoomController)

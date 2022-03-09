@@ -1,0 +1,12 @@
+<%= render partial: 'shared/errors' %>
+
+<form action="/reservations" method="post">
+  <input type="date" name="reservation[start_date]">
+  <input type="date" name="reservation[end_date]">
+
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="reservation[listing_id]" value="<%= @listing.id %>">
+  <input type="submit" value="Reserve">
+</form>
+
+

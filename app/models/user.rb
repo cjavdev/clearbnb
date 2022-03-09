@@ -26,6 +26,9 @@
 #  uid                    :string
 #  name                   :string
 #  stripe_customer_id     :string
+#  is_host                :boolean          default(FALSE)
+#  stripe_account_id      :string
+#  charges_enabled        :boolean          default(FALSE)
 #
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,

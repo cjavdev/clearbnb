@@ -65,3 +65,5 @@ gem "tailwindcss-rails", "~> 0.4.3"
 gem 'image_processing', '~> 1.2'
 gem 'stripe'
 gem 'resque'
+
+gem "validates_overlap", "~> 1.0"

@@ -265,6 +265,8 @@ GEM
     turbolinks-source (5.2.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
+    validates_overlap (1.0.0)
+      rails (>= 6.0.0)
     vegas (0.1.11)
       rack (>= 1.0.0)
     warden (1.2.9)
@@ -312,6 +314,7 @@ DEPENDENCIES
   tailwindcss-rails (~> 0.4.3)
   turbolinks (~> 5)
   tzinfo-data
+  validates_overlap (~> 1.0)
   web-console (>= 4.1.0)
   webpacker (~> 5.0)
 

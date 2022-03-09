@@ -16,6 +16,7 @@ class ReservationsController < ApplicationController
 
   def new
     @listing = Listing.find(params[:listing_id])
+    @calendar_events = @listing.calendar_events
   end
 
   def create
@@ -26,6 +27,7 @@ class ReservationsController < ApplicationController
     else
       flash.now[:errors] = @booking.errors
       @listing = @booking.listing
+      @calendar_events = @listing.calendar_events
       render :new
     end
   end

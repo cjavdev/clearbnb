@@ -34,6 +34,7 @@ class BookListing
       success_url: reservation_url(reservation),
       cancel_url: listing_url(listing),
       customer: current_user.stripe_customer_id,
+      expires_at: 1.hour.from_now.to_i,
       mode: 'payment',
       allow_promotion_codes: true,
       submit_type: 'book',

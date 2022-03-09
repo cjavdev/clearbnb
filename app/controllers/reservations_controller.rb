@@ -4,6 +4,11 @@ class ReservationsController < ApplicationController
   def index
   end
 
+  def expire
+    Stripe::Checkout::Session.expire(params[:session_id])
+    redirect_to listings_path
+  end
+
   def cancel
     @reservation = current_user.reservations.find(params[:id])
     # make api call to refund payment
@@ -16,6 +21,7 @@ class ReservationsController < ApplicationController
 
   def new
     @listing = Listing.find(params[:listing_id])
+    @calendar_events = @listing.calendar_events
   end
 
   def create
@@ -26,6 +32,7 @@ class ReservationsController < ApplicationController
     else
       flash.now[:errors] = @booking.errors
       @listing = @booking.listing
+      @calendar_events = @listing.calendar_events
       render :new
     end
   end

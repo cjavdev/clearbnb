@@ -1,5 +1,16 @@
 <%= render partial: 'shared/errors' %>
 
+<ul>
+  <% @calendar_events.each do |calendar_event| %>
+    <li>
+      <%= calendar_event.start_date %>
+      <%= calendar_event.end_date %>
+      <%= calendar_event.status %>
+      <%= calendar_event.try(:reservation).try(:status) %>
+    </li>
+  <% end %>
+</ul>
+
 <form action="/reservations" method="post">
   <input type="date" name="reservation[start_date]">
   <input type="date" name="reservation[end_date]">

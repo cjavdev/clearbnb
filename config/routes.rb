@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :reservations do
     member do
       post '/cancel' => 'reservations#cancel'
+      get '/expire' => 'reservations#expire'
     end
   end
   post '/webhooks/:source' => 'webhooks#create'

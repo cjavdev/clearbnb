@@ -30,6 +30,10 @@ class CalendarEvent < ApplicationRecord
   validates :start_date, :end_date, overlap: {
     exclude_edges: ['start_date', 'end_date'],
     scope: :listing_id,
+    query_options: {
+      joins: 'LEFT OUTER JOIN reservations r on r.id = calendar_events.reservation_id',
+      where: 'r.status in (0, 1) or calendar_events.status = 1'
+    },
     message_content: 'is already booked for this date range'
   }
 

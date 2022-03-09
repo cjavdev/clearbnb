@@ -32,6 +32,7 @@ class Listing < ApplicationRecord
   enum status: {draft: 0, published: 1, archived: 2}
   has_many :rooms
   has_many :photos
+  has_many :calendar_events
   scope :published, -> { where(status: :published) }
 
   after_commit :maybe_create_stripe_product, on: [:create, :update]

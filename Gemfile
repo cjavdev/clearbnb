@@ -67,3 +67,5 @@ gem 'stripe'
 gem 'resque'
 
 gem "validates_overlap", "~> 1.0"
+
+gem "pagy", "~> 5.10"

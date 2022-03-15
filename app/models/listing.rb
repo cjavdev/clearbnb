@@ -33,6 +33,7 @@ class Listing < ApplicationRecord
   has_many :rooms
   has_many :photos
   has_many :calendar_events
+  has_many :reservations
   scope :published, -> { where(status: :published) }
 
   after_commit :maybe_create_stripe_product, on: [:create, :update]

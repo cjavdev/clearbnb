@@ -37,6 +37,7 @@ class User < ApplicationRecord
     :omniauthable, omniauth_providers: [:google]
   has_many :listings, foreign_key: :host_id
   has_many :reservations, foreign_key: :guest_id
+  has_many :host_reservations, class_name: 'Reservation', through: :listings, source: :reservations
 
   after_commit :maybe_create_stripe_customer, on: [:create, :update]
 

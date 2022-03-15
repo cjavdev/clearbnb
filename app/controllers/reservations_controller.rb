@@ -2,6 +2,8 @@ class ReservationsController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    @reservations = current_user.reservations
+    @host_reservations = current_user.host_reservations
   end
 
   def expire

@@ -14,6 +14,7 @@ Turbolinks.start()
 ActiveStorage.start()
 
 window.initMap = () => {
+  console.log('initMap was called');
   const event = new Event("MapLoaded")
   event.initEvent("map-loaded", true, true);
   window.dispatchEvent(event)

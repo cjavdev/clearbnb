@@ -69,3 +69,5 @@ gem 'resque'
 gem "validates_overlap", "~> 1.0"
 
 gem "pagy", "~> 5.10"
+
+gem "noticed", "~> 1.5"

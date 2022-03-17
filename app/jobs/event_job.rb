@@ -58,6 +58,17 @@ class EventJob < ApplicationJob
         raise "No reservation found with Payment Intent ID #{charge.payment_intent}"
       end
       reservation.update(status: :cancelled)
+    when "identity.verification_session.verified"
+      session = event.data.object
+      user = User.find_by(id: session.metadata.user_id)
+      if user.nil?
+        raise "No user found with ID #{session.metadata.user_id}"
+      end
+      if session.status == "verified"
+        user.update(identity_verified: true)
+      else
+        user.update(identity_verified: false)
+      end
     end
   end
 end

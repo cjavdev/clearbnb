@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'static_pages#home'
 
   resources :listings, only: [:index, :show]
+  resources :messages, only: [:index, :create]
   resources :reservations do
     member do
       post '/cancel' => 'reservations#cancel'
@@ -12,7 +13,6 @@ Rails.application.routes.draw do
   post '/webhooks/:source' => 'webhooks#create'
 
   namespace :host do
-    get 'reservations/show'
     resources :merchant_settings do
       collection do
         get :connect, to: 'merchant_settings#connect'

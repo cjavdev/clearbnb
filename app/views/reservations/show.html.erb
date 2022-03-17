@@ -2,6 +2,8 @@
 
 <pre><%= JSON.pretty_generate(@reservation.as_json(include: :calendar_event)) %></pre>
 
+<%= link_to "Messages", messages_path(reservation_id: @reservation.id) %>
+
 <form action="<%= cancel_reservation_path(@reservation) %>" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <input type="submit" value="Cancel">

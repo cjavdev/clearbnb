@@ -39,8 +39,14 @@ class User < ApplicationRecord
   has_many :reservations, foreign_key: :guest_id
   has_many :host_reservations, class_name: 'Reservation', through: :listings, source: :reservations
   has_many :notifications, as: :recipient
+  has_many :sent_messages, class_name: 'Message', foreign_key: 'from_user_id'
+  has_many :received_messages, class_name: 'Message', foreign_key: 'to_user_id'
 
   after_commit :maybe_create_stripe_customer, on: [:create, :update]
+
+  def all_reservations
+    Reservation.where(guest: self).or(Reservation.where(listing: listings))
+  end
 
   def maybe_create_stripe_customer
     return if !stripe_customer_id.blank?

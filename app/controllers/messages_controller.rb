@@ -2,6 +2,7 @@ class MessagesController < ApplicationController
   def index
     @reservation = current_user.all_reservations.find(params[:reservation_id])
     @messages = @reservation.messages
+    @messages.where(to_user: current_user).mark_as_read!
   end
 
   def create

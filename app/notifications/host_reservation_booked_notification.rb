@@ -8,12 +8,15 @@ class HostReservationBookedNotification < Noticed::Base
   #
   deliver_by :database
   deliver_by :email, mailer: "ReservationMailer", method: :host_booked
+  deliver_by :twilio
+
   # deliver_by :slack
   # deliver_by :custom, class: "MyDeliveryMethod"
 
   # Add required params
   #
   param :reservation
+  param :message
 
   # Define helper methods to make rendering easier.
   #

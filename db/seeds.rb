@@ -15,7 +15,10 @@ end
     state: Faker::Address.state,
     country: 'US',
     status: [:draft, :published].sample,
+    nightly_price: 12000,
+    cleaning_fee: 5000,
   )
+  puts "New listing: #{listing.id}"
 end
 
 
@@ -36,6 +39,8 @@ end
       state: Faker::Address.state,
       country: 'US',
       status: [:draft, :published].sample,
+      nightly_price: 12000,
+      cleaning_fee: 5000,
     )
   end
 end

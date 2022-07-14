@@ -12,6 +12,7 @@ export default class extends Controller {
   }
 
   initGoogle() {
+    console.log('init google')
     const myLatLng = { lat: -25.363, lng: 131.044 };
     const map = new google.maps.Map(this.mapTarget, {
       zoom: 4,
@@ -21,6 +22,7 @@ export default class extends Controller {
   }
 
   addMarkers(map) {
+    console.log('adding markers')
     Array.from(this.listingsTarget.children).forEach((listing) => {
       if(listing.dataset.lat) {
         new google.maps.Marker({

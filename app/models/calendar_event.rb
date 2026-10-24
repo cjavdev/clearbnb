@@ -15,7 +15,7 @@ class CalendarEvent < ApplicationRecord
   belongs_to :listing
   belongs_to :reservation, optional: true
   validates :status, presence: true
-  enum status: { reserved: 0, blocked: 1 } # blocked means manually held by the host
+  enum :status, { reserved: 0, blocked: 1 } # blocked means manually held by the host
 
   validates :start_date, presence: true
   validates :end_date, presence: true

@@ -274,8 +274,8 @@ Devise.setup do |config|
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
   config.omniauth(
     :google_oauth2,
-    Rails.application.credentials.google[:client_id],
-    Rails.application.credentials.google[:client_secret],
+    Rails.application.credentials.dig(:google, :client_id),
+    Rails.application.credentials.dig(:google, :client_secret),
     name: 'google',
     access_type: 'offline',
     image_aspect_ratio: 'square',
